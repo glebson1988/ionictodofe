@@ -1,0 +1,7 @@
+{
+  "name": "ionictodofe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
