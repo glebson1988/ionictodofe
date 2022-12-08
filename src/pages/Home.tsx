@@ -14,6 +14,7 @@ import {
 } from '@ionic/react';
 import './Home.css';
 import {Todo, findAllTodos, findTodoById, createTodo, updateTodo, deleteTodo} from "../data/todos";
+import ToDoListItem from "../components/ToDoListItem";
 
 const Home: React.FC = () => {
 
@@ -62,7 +63,7 @@ const Home: React.FC = () => {
         <IonPage id="home-page">
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Inbox</IonTitle>
+                    <IonTitle>Ionic Todo</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
@@ -73,13 +74,15 @@ const Home: React.FC = () => {
                 <IonHeader collapse="condense">
                     <IonToolbar>
                         <IonTitle size="large">
-                            Inbox
+                            Ionic Todo
                         </IonTitle>
                     </IonToolbar>
                 </IonHeader>
 
                 <IonList>
-                    {messages.map(m => <MessageListItem key={m.id} message={m}/>)}
+                    {todos.map((t) => (
+                        <ToDoListItem key={t.id} todo={t} onToggleTodo={handleToggleTodoStatus} onDeleteTodo={handleTodoDelete}/>
+                    ))}
                 </IonList>
             </IonContent>
         </IonPage>
